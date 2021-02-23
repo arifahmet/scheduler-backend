@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: default
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            #clientId: 9fe3580b46d2d66675af
+            clientId: 2256a7f98facfe944f7a
+            #clientSecret: 2115a7f39f405d6d4e82207ba456b43be30fb132
+            clientSecret: ed3115e946c3dbae651ff2dc9d03871700421c88
+---
+spring:
+  profiles:
+    active: prod
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: 9fe3580b46d2d66675af
+            clientSecret: 2115a7f39f405d6d4e82207ba456b43be30fb132
