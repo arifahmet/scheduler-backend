@@ -9,4 +9,4 @@ spring:
             scope: openid, email, profile
         provider:
           okta:
-            issuer-uri: ${ISSUER-URI}
+            issuer-uri: ${ISSUER_URI}
