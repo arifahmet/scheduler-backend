@@ -3,6 +3,10 @@ spring:
     oauth2:
       client:
         registration:
-          github:
-            clientId: ${GITHUB_CLIENT_ID}
-            clientSecret: ${GITHUB_SECRET}
+          okta:
+            client-id: ${CLIENT-ID}
+            client-secret: ${CLIENT-SECRET}
+            scope: openid, email, profile
+        provider:
+          okta:
+            issuer-uri: ${ISSUER-URI}
