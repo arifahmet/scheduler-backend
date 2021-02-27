@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {"http://localhost:3000", "https://barbaktech-scheduler-frontend.herokuapp.com"})
 public class UserController {
     private ClientRegistration registration;
 
