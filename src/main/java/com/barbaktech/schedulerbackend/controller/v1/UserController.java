@@ -9,6 +9,7 @@ import org.springframework.security.oauth2.client.registration.ClientRegistratio
 import org.springframework.security.oauth2.core.oidc.OidcIdToken;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping(value = "/api/v1/user")
 public class UserController {
     private ClientRegistration registration;
@@ -31,7 +33,7 @@ public class UserController {
         if (user == null) {
             return new ResponseEntity<>("", HttpStatus.OK);
         } else {
-            return ResponseEntity.ok().header("Set-Cookie", "key=value; HttpOnly; SameSite=strict").body(user.getAttributes());
+            return ResponseEntity.ok().header("Set-Cookie", "key=value; HttpOnly; SameSite=none").body(user.getAttributes());
         }
     }
 
