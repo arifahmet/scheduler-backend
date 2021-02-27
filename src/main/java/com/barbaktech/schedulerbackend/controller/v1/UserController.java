@@ -19,7 +19,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping(value = "/api/v1/user")
 public class UserController {
     private ClientRegistration registration;
