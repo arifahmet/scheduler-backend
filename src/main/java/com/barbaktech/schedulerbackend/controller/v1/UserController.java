@@ -33,7 +33,7 @@ public class UserController {
         if (user == null) {
             return new ResponseEntity<>("", HttpStatus.OK);
         } else {
-            return ResponseEntity.ok().header("Set-Cookie", "key=value; HttpOnly; SameSite=none").body(user.getAttributes());
+            return ResponseEntity.ok().body(user.getAttributes());
         }
     }
 
