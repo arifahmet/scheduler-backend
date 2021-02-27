@@ -7,7 +7,6 @@ import org.springframework.security.oauth2.client.registration.ClientRegistratio
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.security.oauth2.core.oidc.OidcIdToken;
 import org.springframework.security.oauth2.core.user.OAuth2User;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,8 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-@RestController
-@CrossOrigin(origins = {"http://localhost:3000", "https://barbaktech-scheduler-frontend.herokuapp.com"})
+@RestController(value = "/api/v1/user")
 public class UserController {
     private ClientRegistration registration;
 
@@ -25,7 +23,7 @@ public class UserController {
         this.registration = registrations.findByRegistrationId("okta");
     }
 
-    @GetMapping("/api/user")
+    @GetMapping
     public ResponseEntity<?> getUser(@AuthenticationPrincipal OAuth2User user) {
         if (user == null) {
             return new ResponseEntity<>("", HttpStatus.OK);
@@ -34,7 +32,7 @@ public class UserController {
         }
     }
 
-    @PostMapping("/api/logout")
+    @PostMapping("/logout")
     public ResponseEntity<?> logout(HttpServletRequest request,
                                     @AuthenticationPrincipal(expression = "idToken") OidcIdToken idToken) {
         // send logout URL to client so they can initiate logout
