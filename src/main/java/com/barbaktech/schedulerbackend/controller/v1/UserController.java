@@ -1,3 +1,4 @@
+
 package com.barbaktech.schedulerbackend.controller.v1;
 
 import org.springframework.http.HttpStatus;
@@ -30,7 +31,7 @@ public class UserController {
         if (user == null) {
             return new ResponseEntity<>("", HttpStatus.OK);
         } else {
-            return ResponseEntity.ok().body(user.getAttributes());
+            return ResponseEntity.ok().header("Set-Cookie", "key=value; HttpOnly; SameSite=strict").body(user.getAttributes());
         }
     }
 
