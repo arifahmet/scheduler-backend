@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@CrossOrigin(origins = {"http://localhost:3000", "https://barbaktech-scheduler-backend.herokuapp.com"})
+@CrossOrigin(origins = {"http://localhost:3000", "https://scheduler-frontend-phi.vercel.app"})
 @RequestMapping(value = "/api/v1/schedule-management")
 public class ScheduleManagementController {
 
